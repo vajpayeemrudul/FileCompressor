@@ -34,8 +34,12 @@ div.head h1{
   top: 200px;
   right: 400px;
 }
-div.upload h1{
+div.upload h2{
   color: white;
-  text-align: left;
+  text-align: center;
   padding-left: 15px;
+  color: black;
+}
+div.upload form{
+  padding: 50px 50px;
 }
