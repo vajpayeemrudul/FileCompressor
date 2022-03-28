@@ -1,17 +1,11 @@
 import {bufferSize} from "./ConvertDataToBitString";
 
-const decompress = (compressedData, hashmap) => {
+const decompress = (compressedData, hashMap) => {
   let bitData = "";
   for(let i=0; i<compressedData.length; i++) {
     bitData += convertToBits(compressedData.charCodeAt(i));
   }
-  let reverseMap = {};
-  for(let i=0; i<127; i++) {
-    let temp = String.fromCharCode(i);
-    if(hashmap[temp]) {
-      reverseMap[hashmap[temp]] = temp;
-    }
-  }
+  
   let len = bitData.length - 1;
   while(bitData[len] === '0') {
     len--;
@@ -19,8 +13,8 @@ const decompress = (compressedData, hashmap) => {
   let dataAfterDecompression = "", curString = "";
   for(let i=0; i<len; i++) {
     curString += bitData[i];
-    if(reverseMap[curString]) {
-      dataAfterDecompression += reverseMap[curString];
+    if(hashMap[curString]) {
+      dataAfterDecompression += String.fromCharCode(hashMap[curString]);
       curString = "";
     }
   }

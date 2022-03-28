@@ -34,7 +34,6 @@ const convertDataToBitString = (originalData, encodedmap) => {
     compressedData += String.fromCharCode(curVal);
   }
 
-  console.log(compressedData);
 
   // returing the compressed data
   return compressedData;
