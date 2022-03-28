@@ -1,15 +1,16 @@
+// function to convert the original data into a map with values as their frequency
+// and the array keys store all the unique keys from the original data
 const createMap = (original) => {
-    let map = [];
-    let keys = [];
-    console.log(original);
-    for(let i=0; i<original.length; i++) {
-      if(!map[original[i]]) {
-        map[original[i]] = 0;
-        keys.push(original[i]);
-      }
-      map[original[i]]++;
+  let map = [];
+  let keys = [];
+  for(let i=0; i<original.length; i++) {
+    if(!map[original[i]]) {
+      map[original[i]] = 0;
+      keys.push(original[i]);
     }
-    return [map,keys];
+    map[original[i]]++;
   }
-  
-  export default createMap;
+  return [map,keys];
+}
+
+export default createMap;
